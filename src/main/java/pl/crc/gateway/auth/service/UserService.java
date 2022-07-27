@@ -35,6 +35,8 @@ public class UserService {
     private void validateCredentials(String username, String rawPassword) {
         CredentialsValidator.validateCredentials(username, rawPassword);
         userAuthJPARepository.findByUsername(username)
-                .orElseThrow(() -> new RuntimeException("podany login już istnieje"));
+                .ifPresent(e -> {
+                    throw new RuntimeException("podany login już istnieje");
+                });
     }
 }
