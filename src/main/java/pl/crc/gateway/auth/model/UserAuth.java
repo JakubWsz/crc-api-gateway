@@ -1,7 +1,6 @@
 package pl.crc.gateway.auth.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,16 +13,15 @@ import java.util.stream.Collectors;
 @Entity
 public class UserAuth implements UserDetails {
     @Id
-    private int Id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     private String username;
     private String password;
     private boolean enabled;
-    @One
+    @ElementCollection(targetClass = Role.class)
     private List<Role> roles;
 
-    public UserAuth() {
-
-    }
+    public UserAuth() {}
 
     public UserAuth(String username, String password, boolean enabled, List<Role> roles) {
         this.username = username;
@@ -72,4 +70,6 @@ public class UserAuth implements UserDetails {
     public List<Role> getRoles() {
         return roles;
     }
+
+    public int getId() {return id;}
 }
