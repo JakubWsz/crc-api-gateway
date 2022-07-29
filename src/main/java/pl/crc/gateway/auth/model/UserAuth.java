@@ -19,7 +19,6 @@ public class UserAuth implements UserDetails {
     private String password;
     private boolean enabled;
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
-    @Enumerated(EnumType.STRING)
     private List<Role> roles;
 
     public UserAuth() {}
