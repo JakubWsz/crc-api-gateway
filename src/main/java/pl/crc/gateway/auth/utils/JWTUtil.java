@@ -9,7 +9,6 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import pl.crc.gateway.auth.model.UserAuth;
 
-import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
@@ -71,5 +70,4 @@ public class JWTUtil implements ApplicationRunner {
                 .signWith(key)
                 .compact();
     }
-
 }
