@@ -10,7 +10,7 @@ public class CredentialsValidator {
             Pattern.compile("^[a-zA-Z0-9._-]{3,}$");
     private static final Pattern PASSWORD_REGEX =
             Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$");
-    //    At least 8 chars
+ //    At least 8 chars
 //    Contains at least one digit
 //    Contains at least one lower alpha char and one upper alpha char
 //    Contains at least one char within a set of special chars (@#%$^ etc.)
